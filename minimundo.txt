@@ -1,0 +1,3 @@
+A empresa "Cursos Já" oferece diversos cursos de aperfeiçoamento profissional. O sistema precisa controlar inicialmente: os cursos oferecidos, a data de início e fim, e o valor. E também necessita de controlar o cadastro de professores, onde são cadastrados o nome, celular e o valor hora.
+
+www.cursosja.com.br
