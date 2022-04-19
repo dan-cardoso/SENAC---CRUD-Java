@@ -5,8 +5,11 @@ Esta é uma atividade proposta pelo Professor de Linguagem de Programação, Lui
 No momento (19/04), todos os CRUDs estão sendo feitos pelo index, pelo arquivo "indexprofessor.jsp", página essa que pode ser aberta pelo index principal, com um link.
 Também foi feito o ProfessorDao.java!
 
-FALTAM:
-ProfessorController.java
-ProfessorServlet.java
-CadastrarProfessor.jsp
+Atualização: 19/04 (noite)
+Concluídos:
+	ProfessorController.java
+	CadastrarProfessor.jsp	(falta estilizar)
+	ProfessorServlet.java	(criado, porém incompleto)
+
+FALTA:
 ListarProfessor.jsp

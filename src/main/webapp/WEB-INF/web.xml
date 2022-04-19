@@ -19,4 +19,14 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>ProfessorServlet</display-name>
+    <servlet-name>ProfessorServlet</servlet-name>
+    <servlet-class>br.com.cursoja.agendacurso.view.ProfessorServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ProfessorServlet</servlet-name>
+    <url-pattern>/ProfessorServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
