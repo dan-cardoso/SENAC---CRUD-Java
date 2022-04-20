@@ -15,6 +15,7 @@
 	<h2>Professores CursoJa</h2>
 	
 	<a href="cadastrarprofessor.jsp">Cadastrar Professor</a>
+	<a href="listarprofessor.jsp">Listar Professor</a>
 	
 	<%  //////////////////////////////////////////////////////////////// CADASTRAR
 		Conexao c = new Conexao();

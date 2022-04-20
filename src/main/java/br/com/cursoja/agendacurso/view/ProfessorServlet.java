@@ -1,5 +1,6 @@
 package br.com.cursoja.agendacurso.view;
 
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -61,7 +62,12 @@ public class ProfessorServlet extends HttpServlet {
 		ProfessorController controller = new ProfessorController();
 		controller.cadastrar(p);
 		
-		doGet(request, response);
+		
+		//pagina encaminhada
+		RequestDispatcher rd = request.getRequestDispatcher("indexprofessor.jsp");
+		rd.forward(request, response);
+		
+		//doGet(request, response);
 	}
 
 }

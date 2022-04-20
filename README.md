@@ -11,5 +11,11 @@ Concluídos:
 	CadastrarProfessor.jsp	(falta estilizar)
 	ProfessorServlet.java	(criado, porém incompleto)
 
-FALTA:
-ListarProfessor.jsp
+Atualização: 20/04 (noite)
+Trabalhados:
+	CadastrarProfessor.jsp
+	ProfessorServlet		terminado
+	ListarProfessor		Terminado já com bootstrap!
+
+---
+Novas mudanças virão após o passar das aulas! (Aula 11 momento)
