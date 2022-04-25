@@ -64,7 +64,7 @@ public class ProfessorServlet extends HttpServlet {
 		
 		
 		//pagina encaminhada
-		RequestDispatcher rd = request.getRequestDispatcher("indexprofessor.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("listarprofessor.jsp");
 		rd.forward(request, response);
 		
 		//doGet(request, response);

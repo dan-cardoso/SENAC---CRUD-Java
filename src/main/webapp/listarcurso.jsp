@@ -10,13 +10,16 @@
 <head>
 <meta charset="UTF-8">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-<title>Listagem de Cursos</title>
+<title>Cursos</title>
 </head>
 <body>
 	
-	<a href="cadastrarcurso.jsp">Cadastrar Curso</a>
+		<br><h3 align="left"><a href="index.jsp">Voltar ao Index</h3>
 	
-	<table class="table">
+	<br><h1 align="center">Cursos Cadastrados</h1><br>
+	
+  <div class="container" widht="60%">
+	<table class="table table-success table-striped">
 		<thead>
 			<th scope="col">Nome</th>
 			<th scope="col">Valor</th>
@@ -34,12 +37,17 @@
 				<td><%= c.getNome() %></td>
 				<td><%= fmt.format(c.getValor()) %></td>
 				<td>
-				<a href="InicioAlteraCurso?id=<%= c.getId() %>">Alterar</a>		<!--  essa id é setada no inicioalteracurso -->
-				<a href="ExcluirCurso?id=<%= c.getId() %>" onclick="if(!confirm('Deseja excluir esse Curso?')){return false}">Excluir</a></td>		<!--  é get porque está na url 	 -->
+				<p><a href="InicioAlteraCurso?id=<%= c.getId() %>">Alterar</a>  |  
+				<a href="ExcluirCurso?id=<%= c.getId() %>" onclick="if(!confirm('Deseja excluir esse Curso?')){return false}">Excluir</a></p></td>		<!--  é get porque está na url 	 -->
 			</tr>
 	
 	<% } %>
 		</tbody>
 	</table>
+	<div class=buttoncontainer align="right">
+		<a href="cadastrarcurso.jsp" type="button" class="btn btn-outline-success">Cadastrar Curso</a>
+	</div>
+	</div>
+
 </body>
 </html>

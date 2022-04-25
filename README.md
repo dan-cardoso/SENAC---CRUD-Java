@@ -22,3 +22,8 @@ Atualização 24 - 25 /04
 	Excluir Professor e Curso funcionando 100%
 
 	Faltando apenas estilizar
+
+---
+Atualização 25/04
+
+	Estilizado com todos os CRUDs funcionando e páginas estilizadas

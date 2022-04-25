@@ -9,50 +9,47 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Página inicial</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<title>Curso Ja</title>
 </head>
 <body>
-	<h1>Olá mundo, agora na "web"</h1>
+	<br>
+	<h1 align="center">CursoJa</h1>
+	<p align="center"><a href="indexprofessor.jsp">Testes dos CRUDs Professor</a></p> <br><br>
+
+  <div class="container" widht="80%">
+	<div class="row">
+	    
+    	<div class="col-sm-6"><a href="listarcurso.jsp">
+    		<div class="card" style="background-image: url('https://blog.trivium.com.br/wp-content/uploads/2019/11/309708-formacao-continuada-de-professores-qual-a-importancia-1536x1060.jpg'); background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;">
+      			<div class="card-body">
+        			<br><h4 class="card-title" style="color: white; text-shadow: black 0.1em 0.1em 0.2em;">Cursos Cadastrados</h4><br><br>
+      			</div>
+    		</div></a>
+  		</div>
+  		
+    	<div class="col-sm-6"><a href="listarprofessor.jsp">
+    		<div class="card" style="background-image: url('https://blog.trivium.com.br/wp-content/uploads/2019/11/309708-formacao-continuada-de-professores-qual-a-importancia-1536x1060.jpg'); background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;">
+      			<div class="card-body">
+        			<br><h4 class="card-title" style="color: white; text-shadow: black 0.1em 0.1em 0.2em; text-align: right">Professores Cadastrados</h4><br><br>
+        		</div>
+    		</div></a>
+  		</div>
+   </div>
+  </div>
 	
-	<a href="cadastrarcurso.jsp">Cadastrar Curso</a><br>
-	<a href="listarcurso.jsp">Listar Cursos</a><br>
-	<a href="indexprofessor.jsp">Testes dos CRUD Professor</a>
 	<%
 		Conexao c = new Conexao();
 		c.getConexao();
 		
 		c.fecharConexao();
 
-	
-	/*	Curso curso = new Curso();
-		curso.setNome("Word");
-		curso.setValor(300);
-		
-		
-		Curso curso2 = new Curso();
-		curso2.setNome("Datilografia");
-		curso2.setValor(50);
-	 */
 		CursoDao dao = new CursoDao();
-		//dao.cadastrar(curso);
-		//dao.cadastrar(curso2);
-	/*
-		Curso cursoAlterar = new Curso();
-		cursoAlterar.setNome("Office");
-		cursoAlterar.setValor(500);
-		cursoAlterar.setId(1);
-		dao.alterar(cursoAlterar);
-	*/
-		ArrayList<Curso> cursos = dao.listar("");
-		for(Curso a : cursos){ 
-	%>
-			<p><%= a.getNome() %></p>
-	<% 
-		}
-		
-		Curso unico = dao.buscar(1);
-	%>
-		<p><%= unico.getNome() %> - <%= unico.getValor() %>
+%>
 		
 </body>
 </html>
