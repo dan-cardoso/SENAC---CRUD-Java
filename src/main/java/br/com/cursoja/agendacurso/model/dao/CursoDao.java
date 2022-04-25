@@ -68,7 +68,7 @@ public class CursoDao extends Conexao {
 		ArrayList<Curso> lista = new ArrayList<Curso>();
 		
 		String sql = "select * from curso " +
-					 "where nome like ?";
+					 "where nome like ?" + " order by nome";
 						
 		try {
 			PreparedStatement ps = getConexao().prepareStatement(sql);

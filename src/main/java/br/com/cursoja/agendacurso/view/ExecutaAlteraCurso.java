@@ -11,15 +11,15 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class CursoServlet
+ * Servlet implementation class ExecutaAlteraCurso
  */
-public class CursoServlet extends HttpServlet {
+public class ExecutaAlteraCurso extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CursoServlet() {
+    public ExecutaAlteraCurso() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -37,32 +37,32 @@ public class CursoServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		//$nome = $_POST["nomecurso"]; PHP
-		//$id = $_GET["id"];
-		String nome = request.getParameter("nomecurso");
+		
+		String nome = request.getParameter("nomeCurso"); //nome vindo do input colocado no alterarcurso
 		String strValor = request.getParameter("mensalidade");
-
-		System.out.println(nome);
-		System.out.println(strValor);
-
+		String strId = request.getParameter("id");
+		
 		double valor = 0.00;
+		long id = 0;
+		
 		try {
 			valor = Double.parseDouble(strValor);
+			id = Long.parseLong(strId);
 		} catch(Exception e) {
-			
+			System.out.println("Erro Na Conversão");
 		}
+		
 		Curso c = new Curso();
+		c.setId(id);
 		c.setNome(nome);
 		c.setValor(valor);
-
-		CursoController controller = new CursoController();
-		controller.cadastrar(c);
 		
-		//RequestDispatcher página encaminhada ---
+		CursoController controller = new CursoController(); 
+		controller.alterar(c);
+		
 		RequestDispatcher rd = request.getRequestDispatcher("listarcurso.jsp");
 		rd.forward(request, response);
 		
-		//doGet(request, response);
 	}
 
 }

@@ -17,5 +17,8 @@ Trabalhados:
 	ProfessorServlet		terminado
 	ListarProfessor		Terminado já com bootstrap!
 
----
-Novas mudanças virão após o passar das aulas! (Aula 11 momento)
+
+Atualização 24 - 25 /04
+	Excluir Professor e Curso funcionando 100%
+
+	Faltando apenas estilizar

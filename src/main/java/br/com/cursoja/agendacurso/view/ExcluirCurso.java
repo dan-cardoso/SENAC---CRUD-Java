@@ -11,15 +11,15 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class CursoServlet
+ * Servlet implementation class ExcluirCurso
  */
-public class CursoServlet extends HttpServlet {
+public class ExcluirCurso extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CursoServlet() {
+    public ExcluirCurso() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,7 +29,25 @@ public class CursoServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+		String strId = request.getParameter("id");
+		
+		long id = 0;
+		try {
+			id = Long.parseLong(strId);
+		} catch (Exception e) {
+			System.out.println("Erro na conversão");
+		}
+		
+		CursoController controller = new CursoController();
+		Curso c = new Curso();
+		c.setId(id);
+		
+		controller.excluir(c);
+		
+		RequestDispatcher rd = request.getRequestDispatcher("listarcurso.jsp");
+		rd.forward(request, response);
 	}
 
 	/**
@@ -37,32 +55,7 @@ public class CursoServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		//$nome = $_POST["nomecurso"]; PHP
-		//$id = $_GET["id"];
-		String nome = request.getParameter("nomecurso");
-		String strValor = request.getParameter("mensalidade");
-
-		System.out.println(nome);
-		System.out.println(strValor);
-
-		double valor = 0.00;
-		try {
-			valor = Double.parseDouble(strValor);
-		} catch(Exception e) {
-			
-		}
-		Curso c = new Curso();
-		c.setNome(nome);
-		c.setValor(valor);
-
-		CursoController controller = new CursoController();
-		controller.cadastrar(c);
-		
-		//RequestDispatcher página encaminhada ---
-		RequestDispatcher rd = request.getRequestDispatcher("listarcurso.jsp");
-		rd.forward(request, response);
-		
-		//doGet(request, response);
+		doGet(request, response);
 	}
 
 }

@@ -4,6 +4,7 @@
 <%@ page import="br.com.cursoja.agendacurso.controller.ProfessorController" %>
 <%@ page import="br.com.cursoja.agendacurso.model.entidade.Professor" %>
 <%@ page import="java.util.ArrayList" %>
+<%@ page import="java.text.DecimalFormat" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,6 +15,8 @@
 <title>Listagem de Professores</title>
 </head>
 <body>
+
+	<a href="cadastrarprofessor.jsp">Cadastrar Professor</a>
 
 <table class="table">
 	<thead>
@@ -27,13 +30,16 @@
 				ProfessorController controller = new ProfessorController();
 				ArrayList<Professor> lista = controller.listar("");
 		
+				DecimalFormat fmt = new DecimalFormat("###0.00");
 				for (Professor p : lista) {
 			%>
 				<tr>
 					<td><%= p.getNome() %></td>
-					<td><%= p.getValorHora() %></td>
+					<td><%= fmt.format(p.getValorHora()) %></td>
 					<td><%= p.getCelular() %></td>
-					<td>Alterar Excluir</td>
+					<td>
+					<a href="InicioAlteraProfessor?id=<%= p.getId() %>">Alterar</a> 
+				<a href="ExcluirProfessor?id=<%= p.getId() %>" onclick="if(!confirm('Deseja excluir esse Professor?')){return false}">Excluir</a></td>
 				</tr>
 	
 			<% } %>

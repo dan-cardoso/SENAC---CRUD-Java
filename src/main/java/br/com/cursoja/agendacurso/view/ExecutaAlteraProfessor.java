@@ -2,8 +2,8 @@ package br.com.cursoja.agendacurso.view;
 
 import java.io.IOException;
 
-import br.com.cursoja.agendacurso.controller.CursoController;
-import br.com.cursoja.agendacurso.model.entidade.Curso;
+import br.com.cursoja.agendacurso.controller.ProfessorController;
+import br.com.cursoja.agendacurso.model.entidade.Professor;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
@@ -11,15 +11,15 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class CursoServlet
+ * Servlet implementation class ExecutaAlteraProfessor
  */
-public class CursoServlet extends HttpServlet {
+public class ExecutaAlteraProfessor extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CursoServlet() {
+    public ExecutaAlteraProfessor() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -37,32 +37,33 @@ public class CursoServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		//$nome = $_POST["nomecurso"]; PHP
-		//$id = $_GET["id"];
-		String nome = request.getParameter("nomecurso");
-		String strValor = request.getParameter("mensalidade");
-
-		System.out.println(nome);
-		System.out.println(strValor);
-
-		double valor = 0.00;
+		
+		String nome = request.getParameter("nomeProfessor");
+		String strValorHora = request.getParameter("valorhora");
+		String celular = request.getParameter("celular");
+		String strId = request.getParameter("id");
+		
+		double valorhora = 0.00;
+		long id = 0;
+		
 		try {
-			valor = Double.parseDouble(strValor);
+			valorhora = Double.parseDouble(strValorHora);
+			id = Long.parseLong(strId);
 		} catch(Exception e) {
-			
+			System.out.println("Erro Na Conversão");
 		}
-		Curso c = new Curso();
-		c.setNome(nome);
-		c.setValor(valor);
-
-		CursoController controller = new CursoController();
-		controller.cadastrar(c);
 		
-		//RequestDispatcher página encaminhada ---
-		RequestDispatcher rd = request.getRequestDispatcher("listarcurso.jsp");
+		Professor p = new Professor();
+		p.setId(id);
+		p.setNome(nome);
+		p.setCelular(celular);
+		p.setValorHora(valorhora);
+		
+		ProfessorController controller = new ProfessorController();
+		controller.alterar(p);
+		
+		RequestDispatcher rd = request.getRequestDispatcher("listarprofessor.jsp");
 		rd.forward(request, response);
-		
-		//doGet(request, response);
 	}
 
 }
