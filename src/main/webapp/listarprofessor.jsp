@@ -12,13 +12,16 @@
 <!-- CSS only -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-<title>Listagem de Professores</title>
+<title>Professores</title>
 </head>
 <body>
 
-	<a href="cadastrarprofessor.jsp">Cadastrar Professor</a>
+		<br><h3 align="left"><a href="index.jsp">Voltar ao Index</h3>
 
-<table class="table">
+	<br><h1 align="center">Professores Cadastrados</h1><br>
+
+  <div class="container" widht="60%">
+	<table class="table table-success table-striped">
 	<thead>
 		<th scope="col">Nome: </th>
 		<th scope="col">Valor Hora: </th>
@@ -38,15 +41,20 @@
 					<td><%= fmt.format(p.getValorHora()) %></td>
 					<td><%= p.getCelular() %></td>
 					<td>
-					<a href="InicioAlteraProfessor?id=<%= p.getId() %>">Alterar</a> 
-				<a href="ExcluirProfessor?id=<%= p.getId() %>" onclick="if(!confirm('Deseja excluir esse Professor?')){return false}">Excluir</a></td>
+					<p><a href="InicioAlteraProfessor?id=<%= p.getId() %>">Alterar</a> | 
+				<a href="ExcluirProfessor?id=<%= p.getId() %>" onclick="if(!confirm('Deseja excluir esse Professor?')){return false}">Excluir</a></p></td>
 				</tr>
 	
 			<% } %>
 
 		</tbody>
 	</table>
-
+		<div class=buttoncontainer align="right">
+			<a href="cadastrarprofessor.jsp" type="button" class="btn btn-outline-success">Cadastrar Professor</a>
+		</div>	
+	</div>
+	
+	
 	<!--  <form method="post" action="">
 		<input type="text" name="nomebusca" />
 		<input type="submit" name="pesquisar" />
